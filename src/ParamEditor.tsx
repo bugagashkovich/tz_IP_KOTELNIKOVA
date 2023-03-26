@@ -11,6 +11,7 @@ interface ParamValue {
   value: string;
 }
 
+// Указан в схеме, но не указан в ТЗ. При необходимости можно добавить в проект.
 // interface Color {
 //   color: string;
 // }
@@ -41,8 +42,7 @@ class ParamEditor extends React.Component<Props, State> {
     },
   };
 
-  renderParams = () => {};
-
+  // Добавить параметр
   addParam = () => {
     let param: Param = { id: this.state.lastID + 1, name: "", type: `string` };
     let paramValue: ParamValue = { paramId: param.id, value: "" };
@@ -63,6 +63,7 @@ class ParamEditor extends React.Component<Props, State> {
     });
   };
 
+  // Удалить параметр
   delParam = (event: React.MouseEvent<HTMLButtonElement>, id: number) => {
     event.preventDefault();
 
@@ -85,6 +86,7 @@ class ParamEditor extends React.Component<Props, State> {
     });
   };
 
+  // Изменить параметр
   changeParamHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
     id: number
@@ -99,6 +101,7 @@ class ParamEditor extends React.Component<Props, State> {
     this.setState({ props: { ...this.state.props, params: newParams } });
   };
 
+  // Изменить значение параметра
   changeValueHandler = (
     event: React.ChangeEvent<HTMLInputElement>,
     id: number
@@ -118,6 +121,7 @@ class ParamEditor extends React.Component<Props, State> {
     });
   };
 
+  // Вывод модели
   getModel = () => {
     return (
       <div style={{ borderLeft: "1px solid grey", paddingLeft: "50px" }}>
